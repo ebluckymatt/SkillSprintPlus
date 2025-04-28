@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSprint+</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #f4f4f4;
+    }
+    header {
+      background: navy;
+      color: white;
+      padding: 1rem;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    section {
+      margin: 2rem;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: navy;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 id="page-title">SkillSprint+</h1>
+  <nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('library')">Library</a>
+    <a href="#" onclick="showPage('profile')">Profile</a>
+  </nav>
+</header>
+
+<main id="content">
+  <section id="home">
+    <p>New Skill. New Habit. New Life. Every 7 Days.</p>
+    <a href="#" class="cta-button" onclick="showPage('library')">Start Sprinting Premium</a>
+  </section>
+
+  <section id="library" class="hidden">
+    <h2>Choose Your Sprint</h2>
+    <ul>
+      <li><a href="#" onclick="showPage('overview')">Focus Challenge (7 Days)</a></li>
+      <li>Coming Soon...</li>
+    </ul>
+  </section>
+
+  <section id="overview" class="hidden">
+    <h2>Focus Sprint Overview</h2>
+    <p>Welcome to the 7-Day Focus Challenge!</p>
+    <a href="#" class="cta-button" onclick="alert('Sprint Starting Soon!')">Start Day 1</a>
+  </section>
+
+  <section id="profile" class="hidden">
+    <h2>My Profile</h2>
+    <p>🏅 Focus Finisher</p>
+    <p>🏅 Resilience Rookie</p>
+  </section>
+</main>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+    document.getElementById(page).classList.remove('hidden');
+
+    if (page === 'home') {
+      document.getElementById('page-title').innerText = "SkillSprint+";
+    } else if (page === 'library') {
+      document.getElementById('page-title').innerText = "Skill Library";
+    } else if (page === 'overview') {
+      document.getElementById('page-title').innerText = "Sprint Overview";
+    } else if (page === 'profile') {
+      document.getElementById('page-title').innerText = "My Profile";
+    }
+  }
+</script>
+
+</body>
+</html>
