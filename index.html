@@ -38,6 +38,28 @@
     .hidden {
       display: none;
     }
+    .status-card {
+      margin: 1.5rem auto;
+      padding: 1rem;
+      max-width: 560px;
+      background: white;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .status-card h3 {
+      margin-top: 0;
+    }
+    .refresh-button {
+      margin-top: 0.75rem;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background: #0b57d0;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -56,6 +78,13 @@
   <section id="home">
     <p>New Skill. New Habit. New Life. Every 7 Days.</p>
     <a href="#" class="cta-button" onclick="showPage('library')">Start Sprinting Premium</a>
+    <div class="status-card">
+      <h3>App & Repo Health</h3>
+      <p><strong>Operating app:</strong> SkillSprint+ Web</p>
+      <p><strong>Git branch:</strong> <span id="git-branch">work</span></p>
+      <p><strong>Last refresh:</strong> <span id="refresh-time">Not refreshed yet</span></p>
+      <button class="refresh-button" onclick="refreshStatus()">Refresh Status</button>
+    </div>
   </section>
 
   <section id="library" class="hidden">
@@ -93,6 +122,11 @@
     } else if (page === 'profile') {
       document.getElementById('page-title').innerText = "My Profile";
     }
+  }
+
+  function refreshStatus() {
+    const now = new Date();
+    document.getElementById('refresh-time').innerText = now.toLocaleString();
   }
 </script>
 
